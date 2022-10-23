@@ -5,11 +5,8 @@ while(modeloAuto < 1 || modeloAuto > 3 && modeloAuto !=''){
     alert('Modelo de automovil incorrecto , ingresa el numero correspondiente');
     modeloAuto = Number(prompt('Que tipo de auto deseas asegurar? ingresa el numero que corresponda \n 1-Camioneta , 2-Sedan, 3-Motocicleta'));
 }
-
+//modelo del automovil y precio
 let precioModeloAuto= 0;
-let precioDeCuotas = 0;
-
-//modelo del automovil
 switch (modeloAuto) {
     case 1:
             precioModeloAuto = 500;
@@ -57,7 +54,8 @@ if(cantidadDeCuotas === 1){
 }
 
 // precio de cuotas
+let precioDeCuotas = 0;
 precioDeCuotas = precioModeloAuto / cantidadDeCuotas;
-alert(`tu vehiculo modelo ${modeloAuto} del año ${anioDeAuto} tiene un costo de ${precioModeloAuto}`);
-alert(`cada cuota tiene el valor de ${precioDeCuotas}`)
-confirm('acepta contratar el seguro?')
+
+//resultado
+confirm(`Total : ${precioModeloAuto} \nCantidad de cuotas: ${cantidadDeCuotas} \nValor de la cuota ${precioDeCuotas} \n¿acepta contratar el seguro?`)
