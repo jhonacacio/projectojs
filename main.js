@@ -60,4 +60,7 @@ function contratoDeSeguro() {
     //resultado
     confirm(`Total : ${precioModeloAuto} Pesos \nCantidad de cuotas: ${cantidadDeCuotas} \nValor de la cuota ${precioDeCuotas} Pesos \n¿acepta contratar el seguro?`) 
 }
-contratoDeSeguro();
+for(let i = 1; i <= 2; i++){
+    contratoDeSeguro();
+}
+
