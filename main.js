@@ -1,14 +1,23 @@
-function contratoDeSeguro() {
-    let modeloAuto = Number(prompt('Que tipo de auto deseas asegurar? ingresa el numero que corresponda \n 1-Camioneta , 2-Sedan, 3-Motocicleta'));
+let precioModeloAuto= 0;
+let precioDeCuotas = 0;
+let cantidadDeCuotas = 0;
+let anioDeAuto = 0;
+validacionDeCompra(precioCuotas(AnioAuto(precioModeloDeAuto(modeloDeAuto))));
 
-    while(modeloAuto < 1 || modeloAuto > 3 || isNaN(modeloAuto)){
-        alert('Modelo de automovil incorrecto , ingresa el numero correspondiente');
-        modeloAuto = Number(prompt('Que tipo de auto deseas asegurar? ingresa el numero que corresponda \n 1-Camioneta , 2-Sedan, 3-Motocicleta'));
+// modelo del auto
+    function modeloDeAuto(){
+        let modeloAuto = Number(prompt('Que tipo de auto deseas asegurar? ingresa el numero que corresponda \n 1-Camioneta , 2-Sedan, 3-Motocicleta'));
+        while(modeloAuto < 1 || modeloAuto > 3 || isNaN(modeloAuto)){
+            alert('Modelo de automovil incorrecto , ingresa el numero correspondiente');
+            modeloAuto = Number(prompt('Que tipo de auto deseas asegurar? ingresa el numero que corresponda \n 1-Camioneta , 2-Sedan, 3-Motocicleta'));
+        }
+        return modeloAuto;
     }
+
+ //modelo del automovil y precio
+function precioModeloDeAuto(modeloAuto){
     
-    //modelo del automovil y precio
-    let precioModeloAuto= 0;
-    switch (modeloAuto) {
+    switch (modeloAuto()) {
         case 1:
                 precioModeloAuto = 500;
             break;
@@ -22,23 +31,28 @@ function contratoDeSeguro() {
             alert('Modelo de vehiculo no valido')
             break;
     }
-    
+    return precioModeloAuto;
+}
     //año del automovil
-    let anioDeAuto = Number(prompt('De que año es tu vehiculo?', 'ingresa un año entre 2000 y 2022'));
-    while(anioDeAuto < 2000 || anioDeAuto > 2022 ){
-        alert('el Año debe estar entre 2000 y 2022');
+    function AnioAuto(precioModeloAuto){
         anioDeAuto = Number(prompt('De que año es tu vehiculo?', 'ingresa un año entre 2000 y 2022'));
-    }
-    if (anioDeAuto >= 2020) {
-        precioModeloAuto += 20
-    } else if(anioDeAuto >= 2010){
-        precioModeloAuto += 100
-    } else if(anioDeAuto >= 2000){
-        precioModeloAuto += 200
-    }
-    
+           while(anioDeAuto < 2000 || anioDeAuto > 2022 ){
+               alert('el Año debe estar entre 2000 y 2022');
+               anioDeAuto = Number(prompt('De que año es tu vehiculo?', 'ingresa un año entre 2000 y 2022'));
+           }
+           if (anioDeAuto >= 2020) {
+               precioModeloAuto += 20
+           } else if(anioDeAuto >= 2010){
+               precioModeloAuto += 100
+           } else if(anioDeAuto >= 2000){
+               precioModeloAuto += 200
+           }
+           return precioModeloAuto;
+}
+
+function precioCuotas(precioModeloAuto){
     //cuotas a pagar
-    let cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 , 3 , 6 y 12'));
+    cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 , 3 , 6 y 12'));
     while(cantidadDeCuotas !== 1 && cantidadDeCuotas !== 3 && cantidadDeCuotas !== 6 && cantidadDeCuotas !== 12 ){
         alert('cantidadDeCuotas no valida, ingrese un numero correcto de cuotas');
         cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 , 3 , 6 y 12'));
@@ -52,15 +66,11 @@ function contratoDeSeguro() {
     }else if(cantidadDeCuotas === 12){
         precioModeloAuto += precioModeloAuto * 0.8;
     }
+    return precioDeCuotas = precioModeloAuto / cantidadDeCuotas;
     
-    // precio de cuotas
-    let precioDeCuotas = 0;
-    precioDeCuotas = precioModeloAuto / cantidadDeCuotas;
-    
-    //resultado
-    confirm(`Total : ${precioModeloAuto} Pesos \nCantidad de cuotas: ${cantidadDeCuotas} \nValor de la cuota ${precioDeCuotas} Pesos \n¿acepta contratar el seguro?`) 
-}
-for(let i = 1; i <= 2; i++){
-    contratoDeSeguro();
 }
 
+function validacionDeCompra(precioModeloAuto,cantidadDeCuotas,precioDeCuotas){
+    //resultado
+    confirm(`Total : ${precioModeloAuto} Pesos \nCantidad de cuotas: ${cantidadDeCuotas} \nValor de la cuota ${precioDeCuotas} Pesos \n¿acepta contratar el seguro?`);
+}  
