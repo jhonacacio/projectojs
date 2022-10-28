@@ -1,3 +1,4 @@
+// Seleccion de modelo de auto o motocicleta, y año
 function comprarSeguroDeAuto() {
     let modeloAuto = 0;
     let anioDeAuto = 0;
@@ -34,7 +35,38 @@ function comprarSeguroDeAuto() {
     return precioTotalAuto;
 }
 
+function validarModeloDeAuto(modeloAuto){
+   
+    while(modeloAuto < 1 || modeloAuto > 3 || isNaN(modeloAuto)){
+        alert('Modelo de automovil incorrecto , ingresa el numero correspondiente');
+        modeloAuto = Number(prompt('Que tipo de auto deseas asegurar? ingresa el numero que corresponda \n 1-Camioneta , 2-Sedan, 3-Motocicleta'));
+    }
+    return modeloAuto;
+}
 
+function validarAnioDeAuto(anioDeAuto){
+    while(anioDeAuto < 2000 || anioDeAuto > 2022 || Number.isNaN(anioDeAuto)){
+        alert('el Año debe estar entre 2000 y 2022');
+        anioDeAuto = Number(prompt('De que año es tu vehiculo?', 'ingresa un año entre 2000 y 2022'));
+    }
+    return anioDeAuto;
+}
+
+// Seleccion de cuotas
+function cuotas() {
+    let cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 a 12 cuotas'));
+    cantidadDeCuotas = validarCantidadDeCuotas(cantidadDeCuotas);
+return cantidadDeCuotas
+}
+
+function validarCantidadDeCuotas(cantidadDeCuotas) {
+    while(cantidadDeCuotas < 1||cantidadDeCuotas > 12 || Number.isNaN(cantidadDeCuotas) ){
+        alert('cantidadDeCuotas no valida, ingrese un numero correcto de cuotas');
+        cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 , 3 , 6 y 12'));
+    }
+    return cantidadDeCuotas
+}
+// Calculo de valor de cuota
 function calcularValorDeCuota(cantidadDeCuotas){
     let totalValidadoDeCuota = 0;
     let valorSinCuotas = 0;
@@ -56,39 +88,6 @@ function calcularValorDeCuota(cantidadDeCuotas){
     }
 
 
-
-function validarCantidadDeCuotas(cantidadDeCuotas) {
-    while(cantidadDeCuotas < 1||cantidadDeCuotas > 12 || Number.isNaN(cantidadDeCuotas) ){
-        alert('cantidadDeCuotas no valida, ingrese un numero correcto de cuotas');
-        cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 , 3 , 6 y 12'));
-    }
-    return cantidadDeCuotas
-}
-
-
-function validarModeloDeAuto(modeloAuto){
-   
-    while(modeloAuto < 1 || modeloAuto > 3 || isNaN(modeloAuto)){
-        alert('Modelo de automovil incorrecto , ingresa el numero correspondiente');
-        modeloAuto = Number(prompt('Que tipo de auto deseas asegurar? ingresa el numero que corresponda \n 1-Camioneta , 2-Sedan, 3-Motocicleta'));
-    }
-    return modeloAuto;
-}
-
-function validarAnioDeAuto(anioDeAuto){
-    while(anioDeAuto < 2000 || anioDeAuto > 2022 || Number.isNaN(anioDeAuto)){
-        alert('el Año debe estar entre 2000 y 2022');
-        anioDeAuto = Number(prompt('De que año es tu vehiculo?', 'ingresa un año entre 2000 y 2022'));
-    }
-    return anioDeAuto;
-}
-function cuotas() {
-    let cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 a 12 cuotas'));
-    cantidadDeCuotas = validarCantidadDeCuotas(cantidadDeCuotas);
-return cantidadDeCuotas
-}
-
-
 let precio = (comprarSeguroDeAuto());
 let precioModeloAuto = precio;
 let cantidadDeCuotas = cuotas();
@@ -106,4 +105,4 @@ let valorTotalConCuota = precio;
 const valorDeCuota =  precio / cantidadDeCuotas;
 
 
-confirm(`El total a pagar es: ${valorTotalConCuota} \nLa cantidad de cuotas a pagar es: ${cantidadDeCuotas} \nCada cuota tiene el valor de ${valorDeCuota} \nQuieres comprar el seguro?`)
+confirm(`El total a pagar es: ${valorTotalConCuota} \nLa cantidad de cuotas a pagar es: ${cantidadDeCuotas} \nCada cuota tiene el valor de ${valorDeCuota} dolares \nQuieres comprar el seguro?`)
