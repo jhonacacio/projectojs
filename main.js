@@ -67,26 +67,6 @@ function validarCantidadDeCuotas(cantidadDeCuotas) {
     return cantidadDeCuotas
 }
 // Calculo de valor de cuota
-function calcularValorDeCuota(cantidadDeCuotas){
-    let totalValidadoDeCuota = 0;
-    let valorSinCuotas = 0;
-    let valorCuotabaja = 0.2;
-    let valorCuotaMedia = 0.4;
-    let valorCuotaAlta = 0.8;
-
-    if(cantidadDeCuotas <= 1){
-        totalValidadoDeCuota = valorSinCuotas;
-    }else if(cantidadDeCuotas <= 3){
-        totalValidadoDeCuota = valorCuotabaja;
-    }else if(cantidadDeCuotas <= 6){
-        totalValidadoDeCuota += valorCuotaMedia * 0.4;
-    }else{
-        totalValidadoDeCuota = valorCuotaAlta;
-    }
-
-    return totalValidadoDeCuota
-    }
-
 
 let precio = (comprarSeguroDeAuto());
 let precioModeloAuto = precio;
