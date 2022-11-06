@@ -7,7 +7,7 @@ const modelosAutos = [
         precioLista: 10990,
         precioAuto: 8990,
         marca: 'Chery',
-        img : '/public/images/1.jpeg'
+        img : './public/images/1.jpeg'
     },
 
     {
@@ -18,7 +18,7 @@ const modelosAutos = [
         precioLista: 20990,
         precioAuto: 16720,
         marca: 'Dodge',
-        img : '/public/images/2.jpeg'
+        img : './public/images/2.jpeg'
     },
 
     {
@@ -29,7 +29,7 @@ const modelosAutos = [
         precioLista: 21200,
         precioAuto: 16720,
         marca: 'Citroen',
-        img : '/public/images/3.jpeg'
+        img : './public/images/3.jpeg'
     },
 
     {
@@ -40,7 +40,7 @@ const modelosAutos = [
         precioLista:15000,
         precioAuto: 9890,
         marca: 'Honda',
-        img : '/public/images/4.jpeg'
+        img : './public/images/4.jpeg'
     },
 
     {
@@ -51,7 +51,7 @@ const modelosAutos = [
         precioLista:16990,
         precioAuto: 11990,
         marca: 'Jeep',
-        img : '/public/images/5.jpeg'
+        img : './public/images/5.jpeg'
     },
 
     {
@@ -62,7 +62,7 @@ const modelosAutos = [
         precioLista:18990,
         precioAuto: 11990,
         marca: 'Jeep',
-        img : '/public/images/6.jpeg'
+        img : './public/images/6.jpeg'
     },
 
     {
@@ -73,7 +73,7 @@ const modelosAutos = [
         precioLista: 10990,
         precioAuto: 8890,
         marca: 'Citroen',
-        img : '/public/images/7.jpeg'
+        img : './public/images/7.jpeg'
     },
 
     {
@@ -84,7 +84,7 @@ const modelosAutos = [
         precioLista:12990,
         precioAuto: 9960,
         marca: 'Fiat',
-        img : '/public/images/8.jpeg'
+        img : 'public/images/8.jpeg'
     },
 
     {
@@ -95,6 +95,6 @@ const modelosAutos = [
         precioLista: 12990,
         precioAuto: 10990,
         marca: 'Honda',
-        img : '/public/images/9.jpeg'
+        img : './public/images/9.jpeg'
     },
 ];
