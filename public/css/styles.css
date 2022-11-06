@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+body{
+    background-color: #f2f2f2;
+}
+
+header{
+    margin-bottom: 20px;
+}
+#parrafo1{
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 20px 0px;
+}
+.subbanner{
+    border-radius: 10px;
+    margin: 20px 0;
+}
+  #contenedorTodos, #contenedorCamionetas, #contenedorSedan, #contenedorSuv {
+    gap: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    line-height: 0.5rem;
+  }
+  #contenedorCamionetas, #contenedorSedan, #contenedorSuv{
+    display: none;
+  }
+
+  .btn, .btn-group-vertical{
+    width: 100%;
+  }
+
+.card{
+    max-width: 15rem;
+    border: none;
+}
+.card-info{
+    font-size: 12px;
+}
+.card-priceList{
+    font-size: 12px;
+    text-decoration:line-through;
+}
+.card-price{
+    font-weight: 700;
+}
+  
+  
+  
+  
