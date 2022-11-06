@@ -84,7 +84,7 @@ const modelosAutos = [
         precioLista:12990,
         precioAuto: 9960,
         marca: 'Fiat',
-        img : 'public/images/8.jpeg'
+        img : './public/images/8.jpeg'
     },
 
     {
