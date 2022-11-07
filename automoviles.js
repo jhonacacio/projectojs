@@ -48,8 +48,8 @@ const modelosAutos = [
         modeloAuto: 'Wrangler',
         tipoAuto: 'Camioneta',
         anioAuto: 2020,
-        precioLista:16990,
         precioAuto: 11990,
+        precioLista:16990,
         marca: 'Jeep',
         img : './public/images/5.jpeg'
     },
