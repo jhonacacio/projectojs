@@ -1,20 +1,15 @@
 let botonAll = document.getElementById('btnAll');
 botonAll.onclick = () => {
-
     document.getElementById('contenedorTodos').style.display = 'flex';
     document.getElementById('contenedorCamionetas').style.display = 'none';
     document.getElementById('contenedorSedan').style.display = 'none';
     document.getElementById('contenedorSuv').style.display = 'none';
 }
-
-        
-const contenedor = document.getElementById('contenedorTodos');
-    
+const contenedor = document.getElementById('contenedorTodos');  
         modelosAutos.forEach( (producto) => {
             const div = document.createElement('div');
             div.classList.add('card');
-            div.innerHTML += `
-    
+            div.innerHTML += `  
             <div class="card" style="width: 18rem;">
             <img src="${producto.img}" class="card-img-top" alt="...">
             <div class="card-body">
@@ -26,20 +21,18 @@ const contenedor = document.getElementById('contenedorTodos');
               <p class="card-price">Desde: ${producto.precioAuto}</p>
               <button id="agregar${producto.id}" name="marcador" class="btn btn-primary">Cotizar</button>
             </div>`
-            contenedor.appendChild(div);
 
+            contenedor.appendChild(div);
+            
             const boton = document.getElementById(`agregar${producto.id}`);
-            boton.addEventListener('click',() => {
-                
+            boton.addEventListener('click',() => {             
         let precio = producto.precioAuto;
         let cantidadDeCuotas = cuotas();
         let n = calculoPrecioCuotas(precio,cantidadDeCuotas);
-        let total = n * cantidadDeCuotas
-        
+        let total = n * cantidadDeCuotas 
         confirm(`El Valor del vehiculo es: ${precio} \nEl total a pagar es: ${total} \nLa cantidad de cuotas a pagar es: ${cantidadDeCuotas} \nCada cuota tiene el valor de ${n} dolares \nQuieres comprar el auto?`)
             })
         })
-
 
 // filtro camionetas 
 let botonCamionetas = document.getElementById('btnCamionetas');
