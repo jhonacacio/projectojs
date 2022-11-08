@@ -23,42 +23,16 @@ const calculoPrecioCuotas = (precio,cantidadDeCuotas)=> {
     const valorDeCuota = Math.round(precio / cantidadDeCuotas) ;
     return valorDeCuota
 }
-// Filtros para mostrar u ocultar productos
-const filtros = (display1,display2,display3,display4) =>{
+//accion de boton para mostrar contenedor de todos los productos
+const mostrarProductos = (claseBoton,display1,display2,display3,display4) =>{
+let boton = document.getElementById(claseBoton);
+boton.onclick = () => {
     document.getElementById('contenedorTodos').style.display = display1;
     document.getElementById('contenedorCamionetas').style.display = display2;
     document.getElementById('contenedorSedan').style.display = display3;
     document.getElementById('contenedorSuv').style.display = display4;
 }
-//accion de boton para mostrar contenedor de todos los productos
-const mostrarTodos = () =>{
-let botonAll = document.getElementById('btnAll');
-botonAll.onclick = () => {
-    filtros('flex','none','none','none');
-}
 };
-//accion de boton para mostrar contenedor de modelo Suv
-const mostrarModeloSuv = () =>{
-    let botonSuv = document.getElementById('btnSuv');
-    botonSuv.onclick = () => {
-        filtros('none','none','none','flex');
-    }
- };
- //accion de boton para mostrar contenedor de modelo Camioneta
- const mostrarModeloCaioneta = () =>{
-    let botonCamionetas = document.getElementById('btnCamionetas');
-botonCamionetas.onclick = () => {
-filtros('none','flex','none','none');
-}
-};
-//accion de boton para mostrar contenedor de modelo Sedan
-const mostrarModeloSedan = () =>{
-    let botonSedan = document.getElementById('btnSedan');
-botonSedan.onclick = () => {
-    filtros('none','none','flex','none');
-};
-};
-
 //contenedor para todos los objetos en general
 const contenedorTodos = (id) => {
 const contenedor = document.getElementById(id);  
@@ -94,8 +68,8 @@ const contenedor = document.getElementById(id);
 //contenedor para objetos con filtro
 const contenedorFiltro = (id,tipoAuto) => {
 const contenedor = document.getElementById(id);
-const modeloSuv = modelosAutos.filter(producto => producto.tipoAuto === tipoAuto);
-modeloSuv.forEach( producto => {
+const modeloAuto = modelosAutos.filter(producto => producto.tipoAuto === tipoAuto);
+modeloAuto.forEach( producto => {
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML += `
