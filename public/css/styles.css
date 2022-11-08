@@ -4,10 +4,12 @@
   }
 body{
     background-color: #f2f2f2;
+    max-width: 1800px;
+    margin: auto;
 }
 
 header{
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 #parrafo1{
   font-size: 2rem;
@@ -32,10 +34,15 @@ header{
 
   .btn, .btn-group-vertical{
     width: 100%;
+    margin-top: 10px;
+    
+  }
+  .btn{
+    border: solid 1px rgb(227, 227, 227);
   }
 
 .card{
-    max-width: 16rem;
+    max-width: 14.3rem;
     border: none;
 }
 .card-info{
@@ -48,7 +55,14 @@ header{
 .card-price{
     font-weight: 700;
 }
-  
+
+@media (max-width: 1450px) {
+  .card{
+    max-width: 13rem;
+    border: none;
+}
+}
+
 @media (max-width: 600px) {
   .card{
     max-width: 10.9rem;

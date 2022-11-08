@@ -27,7 +27,7 @@ const modelosAutos = [
         tipoAuto: 'Suv',
         anioAuto: 2020,
         precioLista: 21200,
-        precioAuto: 16720,
+        precioAuto: 17200,
         marca: 'Citroen',
         img : './public/images/3.jpeg'
     },
