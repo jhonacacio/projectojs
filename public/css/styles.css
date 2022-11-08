@@ -70,7 +70,7 @@ border: solid 1px rgb(227, 227, 227);
 
 @media (max-width: 600px) {
   .card{
-    max-width: 10.9rem;
+    max-width: 11.6rem;
     border: none;
 }
 }
