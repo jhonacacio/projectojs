@@ -11,7 +11,7 @@ function validarCantidadDeCuotas(cantidadDeCuotas) {
     }
     return cantidadDeCuotas
 }
-
+// Calcular el valor de la cuota
 const calculoPrecioCuotas = (precio,cantidadDeCuotas)=> {
     if(cantidadDeCuotas <= 1){
         precio = precio;
@@ -23,19 +23,45 @@ const calculoPrecioCuotas = (precio,cantidadDeCuotas)=> {
     const valorDeCuota = Math.round(precio / cantidadDeCuotas) ;
     return valorDeCuota
 }
-
+// Filtros para mostrar u ocultar productos
+const filtros = (display1,display2,display3,display4) =>{
+    document.getElementById('contenedorTodos').style.display = display1;
+    document.getElementById('contenedorCamionetas').style.display = display2;
+    document.getElementById('contenedorSedan').style.display = display3;
+    document.getElementById('contenedorSuv').style.display = display4;
+}
 //accion de boton para mostrar contenedor de todos los productos
 const mostrarTodos = () =>{
 let botonAll = document.getElementById('btnAll');
 botonAll.onclick = () => {
-    document.getElementById('contenedorTodos').style.display = 'flex';
-    document.getElementById('contenedorCamionetas').style.display = 'none';
-    document.getElementById('contenedorSedan').style.display = 'none';
-    document.getElementById('contenedorSuv').style.display = 'none';
+    filtros('flex','none','none','none');
 }
 };
-const contenedorTodos = () => {
-const contenedor = document.getElementById('contenedorTodos');  
+//accion de boton para mostrar contenedor de modelo Suv
+const mostrarModeloSuv = () =>{
+    let botonSuv = document.getElementById('btnSuv');
+    botonSuv.onclick = () => {
+        filtros('none','none','none','flex');
+    }
+ };
+ //accion de boton para mostrar contenedor de modelo Camioneta
+ const mostrarModeloCaioneta = () =>{
+    let botonCamionetas = document.getElementById('btnCamionetas');
+botonCamionetas.onclick = () => {
+filtros('none','flex','none','none');
+}
+};
+//accion de boton para mostrar contenedor de modelo Sedan
+const mostrarModeloSedan = () =>{
+    let botonSedan = document.getElementById('btnSedan');
+botonSedan.onclick = () => {
+    filtros('none','none','flex','none');
+};
+};
+
+//contenedor para todos los objetos en general
+const contenedorTodos = (id) => {
+const contenedor = document.getElementById(id);  
         modelosAutos.forEach( (producto) => {
             const div = document.createElement('div');
             div.classList.add('card');
@@ -65,21 +91,10 @@ const contenedor = document.getElementById('contenedorTodos');
         });
     }
 
-//accion de boton para mostrar contenedor de modelo Suv
-const mostrarModeloSuv = () =>{
-let botonSuv = document.getElementById('btnSuv');
-botonSuv.onclick = () => {
-document.getElementById('contenedorTodos').style.display = 'none';
-document.getElementById('contenedorCamionetas').style.display = 'none';
-document.getElementById('contenedorSedan').style.display = 'none';
-document.getElementById('contenedorSuv').style.display = 'flex';
-}
-};
-
-// contenedor de modelo Suv
-const contenedorModeloSuv = () => {
-const contenedor4 = document.getElementById('contenedorSuv');
-const modeloSuv = modelosAutos.filter(producto => producto.tipoAuto === 'Suv');
+//contenedor para objetos con filtro
+const contenedorFiltro = (id,tipoAuto) => {
+const contenedor = document.getElementById(id);
+const modeloSuv = modelosAutos.filter(producto => producto.tipoAuto === tipoAuto);
 modeloSuv.forEach( producto => {
     const div = document.createElement('div');
     div.classList.add('card');
@@ -95,7 +110,7 @@ modeloSuv.forEach( producto => {
       <p class="card-price">Desde: ${producto.precioAuto}</p>
       <button id="agregarCamioneta${producto.id}" name="marcador" class="btn btn-primary">Comprar</button>
       </div>`
-      contenedor4.appendChild(div);
+      contenedor.appendChild(div);
   
       const boton = document.getElementById(`agregarCamioneta${producto.id}`);
             boton.addEventListener('click',() => {             
@@ -108,87 +123,7 @@ modeloSuv.forEach( producto => {
         });
     };
 
-//accion de boton para mostrar contenedor de modelo Camioneta
-const mostrarModeloCaioneta = () =>{
-        let botonCamionetas = document.getElementById('btnCamionetas');
-botonCamionetas.onclick = () => {
-document.getElementById('contenedorTodos').style.display = 'none';
-document.getElementById('contenedorCamionetas').style.display = 'flex';
-document.getElementById('contenedorSedan').style.display = 'none';
-document.getElementById('contenedorSuv').style.display = 'none';
-}
-        };
-        const contenedorModeloCamioneta = () => {
-const contenedor2 = document.getElementById('contenedorCamionetas');
-const modeloCamioneta = modelosAutos.filter(producto => producto.tipoAuto === 'Camioneta');
 
-  modeloCamioneta.forEach( producto => {
-    const div = document.createElement('div');
-    div.classList.add('card');
-    div.innerHTML += `
 
-    <div class="card" style="width: 18rem;">
-    <img src="${producto.img}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">${producto.modeloAuto}</h5>
-      <p class="card-info">${producto.marca}</p>
-      <p class="card-info">Año: ${producto.anioAuto}</p>
-      <p class="card-info">Tipo: ${producto.tipoAuto}</p>
-      <p class="card-priceList">Precio lista: ${producto.precioLista}</p>
-      <p class="card-price">Desde: ${producto.precioAuto}</p>
-      <button id="agregarCamioneta${producto.id}" name="marcador" class="btn btn-primary">Comprar</button>
-    </div>`
-    contenedor2.appendChild(div);
+    
 
-    const boton = document.getElementById(`agregarCamioneta${producto.id}`);
-        boton.addEventListener('click',() => {             
-            let precio = producto.precioAuto;
-            let cantidadDeCuotas = cuotas();
-            let totalCuota = calculoPrecioCuotas(precio,cantidadDeCuotas);
-            let total = totalCuota * cantidadDeCuotas 
-            confirm(`El Valor del vehiculo es: ${precio} \nEl total a pagar es: ${total} \nLa cantidad de cuotas a pagar es: ${cantidadDeCuotas} \nCada cuota tiene el valor de ${totalCuota} dolares \nQuieres comprar el auto?`)
-        })
-        
-    });
-        };
-
-//accion de boton para mostrar contenedor de modelo Sedan
-const mostrarModeloSedan = () =>{
-        let botonSedan = document.getElementById('btnSedan');
-    botonSedan.onclick = () => {
-        document.getElementById('contenedorTodos').style.display = 'none';
-        document.getElementById('contenedorCamionetas').style.display = 'none';
-        document.getElementById('contenedorSedan').style.display = 'flex';
-        document.getElementById('contenedorSuv').style.display = 'none';
-    };
-};
-const contenedorModeloSedan = () => {
-const contenedor3 = document.getElementById('contenedorSedan');
-const modeloSedan = modelosAutos.filter(producto => producto.tipoAuto === 'Sedan');
-modeloSedan.forEach( producto => {
-    const div = document.createElement('div');
-    div.classList.add('card');
-    div.innerHTML = `
-    <div class="card" style="width: 18rem;">
-    <img src="${producto.img}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">${producto.modeloAuto}</h5>
-      <p class="card-info">${producto.marca}</p>
-      <p class="card-info">Año: ${producto.anioAuto}</p>
-      <p class="card-info">Tipo: ${producto.tipoAuto}</p>
-      <p class="card-priceList">Precio lista: ${producto.precioLista}</p>
-      <p class="card-price">Desde: ${producto.precioAuto}</p>
-      <button id="agregarSedan${producto.id}" name="marcador" class="btn btn-primary">Comprar</button>
-      </div>`
-      contenedor3.appendChild(div);
-  
-      const boton = document.getElementById(`agregarSedan${producto.id}`);
-            boton.addEventListener('click',() => {             
-        let precio = producto.precioAuto;
-        let cantidadDeCuotas = cuotas();
-        let totalCuota = calculoPrecioCuotas(precio,cantidadDeCuotas);
-        let total = totalCuota * cantidadDeCuotas 
-        confirm(`El Valor del vehiculo es: ${precio} \nEl total a pagar es: ${total} \nLa cantidad de cuotas a pagar es: ${cantidadDeCuotas} \nCada cuota tiene el valor de ${totalCuota} dolares \nQuieres comprar el auto?`)
-            })
-        });
-    };

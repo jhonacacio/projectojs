@@ -185,6 +185,6 @@ const modelosAutos = [
         precioLista: 22990,
         precioAuto: 21990,
         marca: 'Mitsubishi',
-        img : './public/images/13.jpeg'
+        img : './public/images/18.jpeg'
     },
 ];

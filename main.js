@@ -1,4 +1,7 @@
-mostrarModeloSuv(contenedorModeloSuv());
-mostrarTodos(contenedorTodos());
-mostrarModeloCaioneta(contenedorModeloCamioneta());
-mostrarModeloSedan(contenedorModeloSedan());
+mostrarModeloSuv(contenedorFiltro('contenedorSuv','Suv'));
+mostrarTodos(contenedorTodos('contenedorTodos'));
+mostrarModeloCaioneta(contenedorFiltro('contenedorCamionetas','Camioneta'));
+mostrarModeloSedan(contenedorFiltro('contenedorSedan','Sedan'));
+
+
+
