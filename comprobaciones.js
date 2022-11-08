@@ -11,3 +11,18 @@ function validarCantidadDeCuotas(cantidadDeCuotas) {
     }
     return cantidadDeCuotas
 }
+
+const calculoPrecioCuotas = (precio,cantidadDeCuotas)=> {
+    
+    if(cantidadDeCuotas <= 1){
+        precio = precio;
+    }else if(cantidadDeCuotas <= 5){
+        precio += precio * 0.2;
+    }else if(cantidadDeCuotas <= 9){
+        precio += precio * 0.4;
+    }else{
+        precio += precio * 0.8;
+    }
+    const valorDeCuota =  precio / cantidadDeCuotas;
+    return valorDeCuota
+}

@@ -31,24 +31,12 @@ const contenedor = document.getElementById('contenedorTodos');
             const boton = document.getElementById(`agregar${producto.id}`);
             boton.addEventListener('click',() => {
                 
-                let precio = producto.precioAuto;
-
+        let precio = producto.precioAuto;
         let cantidadDeCuotas = cuotas();
+        let n = calculoPrecioCuotas(precio,cantidadDeCuotas);
+        let total = n * cantidadDeCuotas
         
-        if(cantidadDeCuotas <= 1){
-            precio = precio;
-        }else if(cantidadDeCuotas <= 5){
-            precio += precio * 0.2;
-        }else if(cantidadDeCuotas <= 9){
-            precio += precio * 0.4;
-        }else{
-            precio += precio * 0.8;
-        }
-        let valorTotalConCuota = precio;
-        const valorDeCuota =  precio / cantidadDeCuotas;
-        
-        
-        confirm(`El Valor del vehiculo es: ${producto.precioAuto} \nEl total a pagar es: ${valorTotalConCuota} \nLa cantidad de cuotas a pagar es: ${cantidadDeCuotas} \nCada cuota tiene el valor de ${valorDeCuota} dolares \nQuieres comprar el auto?`)
+        confirm(`El Valor del vehiculo es: ${precio} \nEl total a pagar es: ${total} \nLa cantidad de cuotas a pagar es: ${cantidadDeCuotas} \nCada cuota tiene el valor de ${n} dolares \nQuieres comprar el auto?`)
             })
         })
 
