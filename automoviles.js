@@ -97,4 +97,94 @@ const modelosAutos = [
         marca: 'Honda',
         img : './public/images/9.jpeg'
     },
+    {
+        id: 10,
+        modeloAuto: 'Truck Dc',
+        tipoAuto: 'Camioneta',
+        anioAuto: 2019,
+        precioLista: 9151,
+        precioAuto: 7842,
+        marca: 'Dfsk',
+        img : './public/images/10.jpeg'
+    },
+    {
+        id: 11,
+        modeloAuto: 'Vigus Plus',
+        tipoAuto: 'Camioneta',
+        anioAuto: 2023,
+        precioLista: 19504,
+        precioAuto: 18314,
+        marca: 'JMC',
+        img : './public/images/11.jpeg'
+    },
+    {
+        id: 12,
+        modeloAuto: 'Tiggo 7 Pro',
+        tipoAuto: 'Suv',
+        anioAuto: 2023,
+        precioLista: 19990,
+        precioAuto: 16490,
+        marca: 'Chery',
+        img : './public/images/12.jpeg'
+    },
+    {
+        id: 13,
+        modeloAuto: 'Corlay',
+        tipoAuto: 'Suv',
+        anioAuto: 2021,
+        precioLista: 16990,
+        precioAuto: 14990,
+        marca: 'Geely',
+        img : './public/images/13.jpeg'
+    },
+    {
+        id: 14,
+        modeloAuto: 'Civic',
+        tipoAuto: 'Sedan',
+        anioAuto: 2022,
+        precioLista: 26390,
+        precioAuto: 25490,
+        marca: 'Honda',
+        img : './public/images/14.jpeg'
+    },
+    {
+        id: 15,
+        modeloAuto: 'Cerato 5',
+        tipoAuto: 'Sedan',
+        anioAuto: 2022,
+        precioLista: 23490,
+        precioAuto: 22990,
+        marca: 'Kia Motors',
+        img : './public/images/15.jpeg'
+    },
+    {
+        id: 16,
+        modeloAuto: 'New Mg3',
+        tipoAuto: 'Sedan',
+        anioAuto: 2023,
+        precioLista: 11390,
+        precioAuto: 10890,
+        marca: 'Mg',
+        img : './public/images/16.jpeg'
+    },
+    {
+        id: 17,
+        modeloAuto: 'New Musso Grand',
+        tipoAuto: 'Camioneta',
+        anioAuto: 2021,
+        precioLista: 23430,
+        precioAuto: 22630,
+        marca: 'Ssangyong',
+        img : './public/images/17.jpeg'
+    },
+    {
+        id: 18,
+        modeloAuto: 'Eclipse Cross',
+        tipoAuto: 'Suv',
+        anioAuto: 2023,
+        precioLista: 22990,
+        precioAuto: 21990,
+        marca: 'Mitsubishi',
+        img : './public/images/13.jpeg'
+    },
 ];

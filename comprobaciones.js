@@ -49,7 +49,7 @@ const contenedor = document.getElementById('contenedorTodos');
               <p class="card-info">Tipo: ${producto.tipoAuto}</p>
               <p class="card-priceList">Precio lista: ${producto.precioLista}</p>
               <p class="card-price">Desde: ${producto.precioAuto}</p>
-              <button id="agregar${producto.id}" name="marcador" class="btn btn-primary">Cotizar</button>
+              <button id="agregar${producto.id}" name="marcador" class="btn btn-primary">Comprar</button>
             </div>`
 
             contenedor.appendChild(div);
@@ -93,7 +93,7 @@ modeloSuv.forEach( producto => {
       <p class="card-info">Tipo: ${producto.tipoAuto}</p>
       <p class="card-priceList">Precio lista: ${producto.precioLista}</p>
       <p class="card-price">Desde: ${producto.precioAuto}</p>
-      <button id="agregarCamioneta${producto.id}" name="marcador" class="btn btn-primary">Cotizar</button>
+      <button id="agregarCamioneta${producto.id}" name="marcador" class="btn btn-primary">Comprar</button>
       </div>`
       contenedor4.appendChild(div);
   
@@ -136,7 +136,7 @@ const modeloCamioneta = modelosAutos.filter(producto => producto.tipoAuto === 'C
       <p class="card-info">Tipo: ${producto.tipoAuto}</p>
       <p class="card-priceList">Precio lista: ${producto.precioLista}</p>
       <p class="card-price">Desde: ${producto.precioAuto}</p>
-      <button id="agregarCamioneta${producto.id}" name="marcador" class="btn btn-primary">Cotizar</button>
+      <button id="agregarCamioneta${producto.id}" name="marcador" class="btn btn-primary">Comprar</button>
     </div>`
     contenedor2.appendChild(div);
 
@@ -178,7 +178,7 @@ modeloSedan.forEach( producto => {
       <p class="card-info">Tipo: ${producto.tipoAuto}</p>
       <p class="card-priceList">Precio lista: ${producto.precioLista}</p>
       <p class="card-price">Desde: ${producto.precioAuto}</p>
-      <button id="agregarSedan${producto.id}" name="marcador" class="btn btn-primary">Cotizar</button>
+      <button id="agregarSedan${producto.id}" name="marcador" class="btn btn-primary">Comprar</button>
       </div>`
       contenedor3.appendChild(div);
   
