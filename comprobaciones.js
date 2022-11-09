@@ -1,9 +1,3 @@
-function cuotas() {
-    let cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 a 12 cuotas'));
-    cantidadDeCuotas = validarCantidadDeCuotas(cantidadDeCuotas);
-return cantidadDeCuotas
-}
-
 function validarCantidadDeCuotas(cantidadDeCuotas) {
     while(cantidadDeCuotas < 1||cantidadDeCuotas > 12 || Number.isNaN(cantidadDeCuotas) ){
         alert('cantidadDeCuotas no valida, ingrese un numero correcto de cuotas');
@@ -11,6 +5,13 @@ function validarCantidadDeCuotas(cantidadDeCuotas) {
     }
     return cantidadDeCuotas
 }
+
+function cuotas() {
+    let cantidadDeCuotas = Number(prompt('En cuantas cuotas deseas pagar?', 'elije entre 1 a 12 cuotas'));
+    cantidadDeCuotas = validarCantidadDeCuotas(cantidadDeCuotas);
+return cantidadDeCuotas
+}
+
 // Calcular el valor de la cuota
 const calculoPrecioCuotas = (precio,cantidadDeCuotas)=> {
     if(cantidadDeCuotas <= 1){

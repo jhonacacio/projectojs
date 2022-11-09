@@ -25,7 +25,7 @@ header{
   #contenedorTodos, #contenedorCamionetas, #contenedorSedan, #contenedorSuv {
     gap: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
     line-height: 0.5rem;
   }
@@ -72,7 +72,10 @@ border: solid 1px rgb(227, 227, 227);
   .card{
     max-width: 11.6rem;
     border: none;
-}
+};
+#contenedorTodos, #contenedorCamionetas, #contenedorSedan, #contenedorSuv {
+  justify-content: space-around;
+};
 }
   
   
