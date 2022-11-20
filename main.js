@@ -1,40 +1,32 @@
-const cuotas2 = document.getElementById("fees");
+
 const montoFinal = document.getElementById("finalAmount");
-const cuotasFinales = document.getElementById("finalFees");
 const intereses = document.getElementById("interests");
 const totalADevolver = document.getElementById("totalAmount");
 const modeloSeleccionado = document.getElementById("modeloAutoSeleccionado");
 
-
+//contenedor para el resultado de la cotizacion
 const mostrarCotizacion = (producto) => {
     let precio = producto.precioAuto; 
-    let cantidadDeCuotas = cuotas2.value;
-    if(cantidadDeCuotas === ''){
-    cantidadDeCuotas = 1;
+    impresionCotizacion(producto,precio)
     }
-    let totalCuota = calculoPrecioCuotas(precio,cantidadDeCuotas);
-    let total = totalCuota * cantidadDeCuotas 
-    modeloSeleccionado.innerText = `${producto.modeloAuto}`
-    montoFinal.innerText = `$${producto.precioAuto}`;   
-    cuotasFinales.innerText = cantidadDeCuotas;  
-    intereses.innerText = total - producto.precioAuto 
-    totalADevolver.innerText = total
-    }
-   
 
-
-// Calcular el valor de la cuota
-const calculoPrecioCuotas = (precio,cantidadDeCuotas)=> {
-    if(cantidadDeCuotas <= 1){
-        precio = precio;
-    }else if(cantidadDeCuotas <= 5){
-        precio += precio * 0.02;
-    }else if(cantidadDeCuotas <= 9){
-        precio += precio * 0.04;
-    }else{ precio += precio * 0.08;}
-    const valorDeCuota = Math.round(precio / cantidadDeCuotas) ;
-    return valorDeCuota
+// impresion de cotizacion
+    const impresionCotizacion = (producto,precio)=> {
+        modeloSeleccionado.innerText = `${producto.modeloAuto}`
+        montoFinal.innerText = `$${producto.precioLista}`;     
+        totalADevolver.innerText = `$${producto.precioAuto}`;
+        guardarCotizacion(producto,precio)
+        }
+// guardar cotizacion en localStorage
+const guardarCotizacion = (producto,total) => {
+        localStorage.setItem('cotizacion',JSON.stringify(producto,total));
+        }
+// obtener datos de cotizacion de localStorage
+const obtenerCotizacion = () =>{
+    const cotizacionStorage = JSON.parse(localStorage.getItem('cotizacion'));
+    return cotizacionStorage;
 }
+
 //accion de boton para mostrar contenedor de todos los productos
 const mostrarProductos = (claseBoton,display1,display2,display3,display4) =>{
 let boton = document.getElementById(claseBoton);
@@ -97,7 +89,6 @@ modeloAuto.forEach( producto => {
       const boton = document.getElementById(`agregarCamioneta${producto.id}`);
       boton.addEventListener('click',() => { 
         mostrarCotizacion(producto);
-        guardarPrestamoStorage(producto)
             })
         });
     };
@@ -113,3 +104,6 @@ mostrarProductos('btnSuv','none','none','none','flex');
 mostrarProductos('btnCamionetas','none','flex','none','none');
 mostrarProductos('btnSedan','none','none','flex','none');
 
+document.addEventListener('DOMContentLoaded', () =>{
+    mostrarCotizacion(obtenerCotizacion());
+})
