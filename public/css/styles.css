@@ -12,6 +12,11 @@ body{
 header{
     margin-bottom: 50px;
 }
+.titulo{
+text-align: center;
+color: #000;
+margin: 20px auto;
+}
 #parrafo1{
   font-size: 2rem;
   font-weight: 700;

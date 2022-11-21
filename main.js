@@ -1,9 +1,20 @@
 
-const montoFinal = document.getElementById("finalAmount");
-const intereses = document.getElementById("interests");
-const totalADevolver = document.getElementById("totalAmount");
+const precioLista = document.getElementById("precioLista");
+const totalApagar = document.getElementById("precioTotal");
 const modeloSeleccionado = document.getElementById("modeloAutoSeleccionado");
+const cuotaInicial = document.getElementById("cuotaInicial");
+const descuento = document.getElementById("descuento");
 
+// calculo del valor de descuento
+const valorDescuento = (producto) => {
+    let descuento = producto.precioLista - producto.precioAuto;
+    return descuento
+}
+// calculo de la cuota inicial 
+const calculoCuotaInicial = (producto) => {
+    valorCuota = producto.precioAuto / 2;
+    return valorCuota
+}
 //contenedor para el resultado de la cotizacion
 const mostrarCotizacion = (producto) => {
     let precio = producto.precioAuto; 
@@ -13,8 +24,10 @@ const mostrarCotizacion = (producto) => {
 // impresion de cotizacion
     const impresionCotizacion = (producto,precio)=> {
         modeloSeleccionado.innerText = `${producto.modeloAuto}`
-        montoFinal.innerText = `$${producto.precioLista}`;     
-        totalADevolver.innerText = `$${producto.precioAuto}`;
+        precioLista.innerText = `$${producto.precioLista}`;     
+        descuento.innerText = '$' + valorDescuento(producto);     
+        cuotaInicial.innerText =  '$' + calculoCuotaInicial(producto) ;     
+        totalApagar.innerText = '$' + producto.precioAuto ;
         guardarCotizacion(producto,precio)
         }
 // guardar cotizacion en localStorage
@@ -92,7 +105,6 @@ modeloAuto.forEach( producto => {
             })
         });
     };
-
 
 contenedorFiltro('contenedorSuv','Suv');
 contenedorTodos('contenedorTodos');
